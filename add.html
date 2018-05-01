@@ -46,4 +46,21 @@
             </div>
         </div>
 </body>
+<script>
+    //this will get the values of the forms on click of the submit button
+    $("#submitBtn").on("click", function (event) {
+  event.preventDefault();
+  var newReservation = {
+      name: $("#nameInput").val().trim(),
+      phoneNumber: $("#phoneInput").val().trim(),
+      email: $("#emailInput").val().trim(),
+      userName: $("#userNameInput").val().trim()
+  };
+  //this will post data to server as object
+  $.post("/api/reservations", newReservation).then(function (data) {
+      console.log("add.html" , data);
+      alert("Added Reservation")
+  });
+});
+</script>
 </html>
