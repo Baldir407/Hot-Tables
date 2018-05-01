@@ -1,0 +1,27 @@
+{
+  "name": "16-hotrestaurant",
+  "version": "1.0.0",
+  "description": "In Class Activity",
+  "main": "server.js",
+  "scripts": {
+    "test": "testMe",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Baldir407/Hot-Tables.git"
+  },
+  "keywords": [
+    "hotTables"
+  ],
+  "author": "Jose A, Casyse M, Andy F, Hrag H",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Baldir407/Hot-Tables/issues"
+  },
+  "homepage": "https://github.com/Baldir407/Hot-Tables#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3"
+  }
+}
