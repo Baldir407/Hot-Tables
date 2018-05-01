@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Hot Restuarant</title>
@@ -9,6 +10,7 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
+
 <body>
     <div class="container">
         <div class="jumbotron">
@@ -24,7 +26,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12 ">
-                <form>
+                <form method="POST" role="form">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="name" class="form-control" id="nameInput" placeholder="Enter Your Name">
@@ -45,22 +47,24 @@
                 </form>
             </div>
         </div>
+
+        <script type="text/javascript">
+            //this will get the values of the forms on click of the submit button
+            $("#submitBtn").on("click", function (event) {
+                event.preventDefault();
+                var newReservation = {
+                    name: $("#nameInput").val().trim(),
+                    phoneNumber: $("#phoneInput").val().trim(),
+                    email: $("#exampleInputEmail1").val(),
+                    userName: $("#userNameInput").val().trim()
+                };
+                //this will post data to server as object
+                $.post("/api/reservations", newReservation).then(function (data) {
+                    console.log("add.html", data);
+                    alert("Added Reservation")
+                });
+            });
+        </script>
 </body>
-<script>
-    //this will get the values of the forms on click of the submit button
-    $("#submitBtn").on("click", function (event) {
-  event.preventDefault();
-  var newReservation = {
-      name: $("#nameInput").val().trim(),
-      phoneNumber: $("#phoneInput").val().trim(),
-      email: $("#emailInput").val().trim(),
-      userName: $("#userNameInput").val().trim()
-  };
-  //this will post data to server as object
-  $.post("/api/reservations", newReservation).then(function (data) {
-      console.log("add.html" , data);
-      alert("Added Reservation")
-  });
-});
-</script>
+
 </html>
